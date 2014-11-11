@@ -12,13 +12,21 @@ import sys
 import time
 from collections import Counter
 import numpy as np
+import re
 
+coOccurCounter = Counter()
 
 #takes in 
 def addCooccurances(hashtagArr, counter):
-	print hashtagArr
+	for i in len(hashtagArr):
+		for j in len(i+1, len(hashtagArr)):
+			t1 = hashtagArr[i]
+			t2 = hashtagArr[j]
+			#do stuff
 
 
+
+#expects tweet object where 'hashtags'
 #returns empty array if no hashtags. returns array of hashtags as strings if they are there.
 def getHashtagArray(t):
 	tagsArr = []
@@ -26,7 +34,8 @@ def getHashtagArray(t):
 		value = t['hashtags']
 		if value != "set([''])": #if the list is not empty
 			valueCleaned = value[5:-2] # takes off "set([" prefix and "])" suffix
-			tagsArr = [tag.strip("'") for tag in valueCleaned.split(',')] #takes off existing quotes and puts in array
+			
+			tagsArr = [re.sub(r'\W+', '', tag) for tag in valueCleaned.split(',')] #takes out all but alpha numeric and puts in array
 			return tagsArr
 	return tagsArr # returns empty arr if no hashtag field, or if field is empty
 
