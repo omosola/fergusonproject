@@ -43,7 +43,7 @@ def pickleTweets(tweets_csv_filename, tweets_pickle_filename):
 			for i, val in enumerate(row):
 				header = headers[i]
 				tweet[header] = val
-				tweets.append(tweet)
+			tweets.append(tweet) #should this be out of the loop? getting repeat values
 				
 	f.close()
 
@@ -52,6 +52,7 @@ def pickleTweets(tweets_csv_filename, tweets_pickle_filename):
 	cPickle.dump(tweets, tweets_pickle_file)
 	tweets_pickle_file.close()
 
+print(len(sys.argv))
 if len(sys.argv) != 2:
 	print "Usage: python pickleTweets.py <path-to-tweets-csv-dir>"
 else:

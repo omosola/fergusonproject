@@ -1,0 +1,2 @@
+dir: toy-partitioned/tweets-pickled
+field: n_followers
