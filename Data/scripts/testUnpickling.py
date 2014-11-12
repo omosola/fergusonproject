@@ -20,7 +20,7 @@ for filename in os.listdir(directory_name):
 	tweets = cPickle.load(tweets_pickle_file)
 	total_tweets += len(tweets)
 
-	print tweets[0]
+	#print tweets[0]
 			
 		
 	tweets_pickle_file.close()

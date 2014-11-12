@@ -13,8 +13,7 @@ TODO: I have been testing this on n_followers, which occasionally has 'True' and
 values. I'm not sure if those are a bug in our stuff, or a fluke in the data. It makes
 doing other things (like plotting) a little tricky - we need to clean those out of the counter. 
 
-Choice: I decided to make a Counter to avoid having an array of length = num_tweets. I haven't tried doing that
-but don't let me stop you. It might be good for using numpy's histogram. 
+Note: getFieldStatsHistogramVersion uses histogram and has plotting. 
 
 '''
 
@@ -33,18 +32,18 @@ field = 'n_followers' #default
 
 def addTweetFieldValueToFreqDist(counter, tweet, field):
 	if field in tweet:
+
 		value = tweet[field]
-		
-		if not(value == 'True'):
-			counter[value] = counter[value] + 1
-		
+		counter[value] = counter[value] + 1
  	else:
  		global num_absent
  		num_absent += 1
 	
 
 def processTweets(tweets, counter, field):
+	print(len(tweets))
 	for t in tweets:
+
 		addTweetFieldValueToFreqDist(counter, t, field)
 
 
