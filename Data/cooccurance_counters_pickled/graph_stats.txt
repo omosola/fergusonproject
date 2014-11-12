@@ -1,0 +1,29 @@
+Stats on Hashtag Co-occurrence Graph
+================
+
+From Print Info (snap.PrintInfo):
+  Nodes:                    30510
+  Edges:                    131046
+  Zero Deg Nodes:           0
+  Zero InDeg Nodes:         0
+  Zero OutDeg Nodes:        0
+  NonZero In-Out Deg Nodes: 30510
+
+Degree Info:
+* Max Degree Node ID: 9317
+* Degree of Node 9317: 25481
+
+Edge Info: 
+* Count UniqUndirEdges: 131046
+
+Connectivity Info:
+* IsWeaklyConn(graph) => false
+* IsConnected(graph) => false
+* Max SCC Size => 0.9686987872828581
+
+Clustering Coefficient:
+* Clustering coefficient => 0.655246105661408
+* Number of triads => 516898L (L for long?)
+
+TODO: Check if this graph degree distribution matches a powerlaw distribution
+Devney showed that it did, but we can use snap to have another source of evidence
