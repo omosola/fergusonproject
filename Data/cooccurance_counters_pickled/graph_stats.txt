@@ -1,29 +1,36 @@
 Stats on Hashtag Co-occurrence Graph
-================
+(Using Bidirectional Multigraph) 
+       Two edges to represent one undirected edge
+       plus multiple edges between 
 
+================
 From Print Info (snap.PrintInfo):
-  Nodes:                    30510
-  Edges:                    131046
+  Nodes:                    30513
+  Edges:                    1562114
   Zero Deg Nodes:           0
   Zero InDeg Nodes:         0
   Zero OutDeg Nodes:        0
-  NonZero In-Out Deg Nodes: 30510
+  NonZero In-Out Deg Nodes: 30513
+
+  # note, the number of real edges should be 1/2 of the amount listed above
 
 Degree Info:
 * Max Degree Node ID: 9317
-* Degree of Node 9317: 25481
+* Degree of Node 9317: 396913 (793826 because of the 2 edges for bidirectionality)
+
+NOTE: XXX means I'm currently computing this. I just wanted to push my current stats in case anyone needed them.
 
 Edge Info: 
-* Count UniqUndirEdges: 131046
+* Count UniqBiDirEdges: XXX
 
 Connectivity Info:
 * IsWeaklyConn(graph) => false
 * IsConnected(graph) => false
-* Max SCC Size => 0.9686987872828581
+* Max SCC Size => 0.9687018647789467
 
 Clustering Coefficient:
-* Clustering coefficient => 0.655246105661408
-* Number of triads => 516898L (L for long?)
+* Clustering coefficient => XXX
+* Number of triads => XXX 
 
 TODO: Check if this graph degree distribution matches a powerlaw distribution
 Devney showed that it did, but we can use snap to have another source of evidence
