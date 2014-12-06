@@ -1,3 +1,15 @@
+''''
+run_edge_removal_PUNGraph.py takes a 'version' as 1st arg, timestep_sequence as second arg. The version 
+is just a string that will differentiate results files. timestep_sequence is the number of edges removed between
+measurements. 
+
+Outputs 3 results files. For increasing, decreasing, and random edge removal, writes a csv with 4 columns:
+'timestep' is actually useless because it always has the last timestep, but the other
+columns are in order of increasing timesteps. 'diameter' is the diameter measurement, num_sccs is the number
+of sccs (which are also wccs in undirected graph), and max_scc_size is size of max scc as fraction of current graph. 
+
+''''
+
 import snap
 import cPickle
 import random
