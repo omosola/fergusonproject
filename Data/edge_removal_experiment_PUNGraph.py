@@ -2,7 +2,7 @@ import snap
 import cPickle
 import random
 
-TIMESTEP_SEQUENCE = 1000
+TIMESTEP_SEQUENCE = 100
 
 INCREASING_ORDER = 0
 DECREASING_ORDER = 1
@@ -40,12 +40,24 @@ def run_experiment(graph_filename, order, output_filename):
         random_order_edges = random.sample(decreasing_order_edges, len(decreasing_order_edges))
         run_edge_deletion_with_stats(Graph, random_order_edges, output_filename)
         
+def write_stats_to_file(output_filename, stats_per_timestep, timestep):
+    f = open(output_filename, "w+") # + <- indicates file
+                                    # should be created if
+                                    # it doesn't already exist
+    f.write("TIMESTEP STATISTICS\n")
+    f.write("timestep, diameter, num_sccs, max_scc_size")
+    for stat in stats_per_timestep:
+        #f.write("%d %s\n" % (timestep, stat))
+        f.write("%d, %d, %d, %f\n" %(timestep, stat[0][0], stat[0][1], stat[0][2]))
+        print("%d, %d, %d, %f" % (timestep, stat[0][0], stat[0][1], stat[0][2]))
+    f.close()
+
 def run_edge_deletion_with_stats(Graph, edge_ordering, output_filename):
     stats_per_timestep = []
     timestep = 0
 
     ## print initial values for the graph
-    print timestep, calculate_stats(Graph)
+    #print timestep, calculate_stats(Graph)
 
     num_deleted_edges = 0
     for edge, edge_weight in edge_ordering:
@@ -59,22 +71,16 @@ def run_edge_deletion_with_stats(Graph, edge_ordering, output_filename):
         if num_deleted_edges % TIMESTEP_SEQUENCE == 0:
             timestep += 1
             timestep_stats = calculate_stats(Graph)
-            print timestep, timestep_stats, num_deleted_edges
+            #print timestep, timestep_stats, num_deleted_edges
             stats_per_timestep += [timestep_stats]
 
-    # write stats to the output file
-    f = open(output_filename, "w+") # + <- indicates file
-                                    # should be created if
-                                    # it doesn't already exist
-    f.write("TIMESTEP STATISTICS\n")
-    for stat in stats_per_timestep:
-        f.write("%d %s\n" % (timestep, stat))
-    f.close()
+    write_stats_to_file(output_filename, stats_per_timestep, timestep)
     
 
 def calculate_stats(Graph):
     # diameter
     diameter = snap.GetBfsFullDiam(Graph, 100, False)
+    print("diameter")
     print diameter
 
     # number of connected components
@@ -98,15 +104,15 @@ def run():
 
     # increasing order of co-occurrence
     print "running experiment with increasing order"
-    run_experiment(graph_filename, order = INCREASING_ORDER,  output_filename="edge_increasing_experimentTS=100.csv")
+    run_experiment(graph_filename, order = INCREASING_ORDER,  output_filename="results/edge_increasing_experimentTS=100V2.csv")
 
     # decreasing order of co-occurrence
     print "running experiment with decreasing order"
-    run_experiment(graph_filename, order = DECREASING_ORDER, output_filename="edge_decreasing_experimentTS=100.csv")
+    run_experiment(graph_filename, order = DECREASING_ORDER, output_filename="results/edge_decreasing_experimentTS=100V2.csv")
 
     # random ordering of co-occurrence
     print "running experiment with random order"
-    run_experiment(graph_filename, order = RANDOM_ORDER, output_filename="edge_random_experimentTS=100.csv")
+    run_experiment(graph_filename, order = RANDOM_ORDER, output_filename="results/edge_random_experimentTS=100V2.csv")
     
 if __name__ == "__main__":
     run()
