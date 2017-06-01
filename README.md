@@ -47,6 +47,9 @@ Removing nodes in decreasing order of frequency (in green), meant that the most 
 ‘minor hubs’ with mid-level frequencies, and then after those are removed the diameter drops as well be- cause the remaining nodes are in very small connected components. This experiment strongly suggests a preferential-attachment structure with a few classes of ‘hubs,’ consistent with the lack of closed triads and power-law distribution of degrees.
 
 Removal in increasing order of frequency:
+
 Removing nodes in this order meant that the size of the largest connected component only increased, and the number of connected components only decreased. This suggests a high correlation between a node’s frequency in the original dataset of tweets and its centrality in the co-occurrence graph. Removing in this order was equivalent to repeatedly removing nodes with the lowest centrality at each timestep. The fact that the diameter remained fairly constant until the very end of the decay process is consistent with this pattern.
+
 Removal in random order of frequency:
+
 The steady diameter, similar to the increasing order node removal strategy, suggests that the structure of the graph is similar at many scales; except where the drop off in max-scc size indicates the graph quickly ‘fell apart’ at the loss of a key hub node (likely #ferguson).
