@@ -46,7 +46,7 @@ Removing nodes in decreasing order of frequency (in green), meant that the most 
 ![figure 2](https://cloud.githubusercontent.com/assets/9558130/26697559/5deb5916-46c7-11e7-9a8c-3bf1c66bf038.png)
 
  Figure 2: This plot displays the measurements of diameter, number of connected components (SCCs), and the size of the largest connected component relative to the graph at that time, taken at each timestep in edge removal. The red line represents removal in order of increasing weight, the green decreasing, and the blue random.
-‘minor hubs’ with mid-level frequencies, and then after those are removed the diameter drops as well be- cause the remaining nodes are in very small connected components. This experiment strongly suggests a preferential-attachment structure with a few classes of ‘hubs,’ consistent with the lack of closed triads and power-law distribution of degrees.
+
 
 Removal in increasing order of frequency:
 
