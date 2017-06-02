@@ -63,7 +63,7 @@ In addition to measuring decomposition of the graph, we wanted to keep track of 
 Assume we have a cluster of N Twitter users and the most heavily weighed hashtag or co-occurrence appears N times, but each time it only appears to the same 1 person (without loss of generality assume N >> 1). In the same network let’s say we have a hashtag or co-occurrence that appears once but is seen by N users. The most influential data point is the one which appeared to N users according to the preferential attachment theory from Cunha et al. (referenced in section 3) and the influence maximization algorithm from Agarwal et al [1][2].
 The notion of an Influence Score came from Agarwal et al in their attempt to quantify the influence of a blog post. The algorithm took an additive approach by allowing for multiple parameters to influence an influence score, such as length of a post, number of inlinks, number of outlinks, and the ’goodness’ of the post.[1] In quantifying the influence of hashtags and co-occurrences, we will take a similar approach. In our case let’s define the Influence Score, I, of a hashtag or co-occurrence, a, as:
 
-                                        ![screen shot 2017-06-02 at 12 20 15 am](https://cloud.githubusercontent.com/assets/9558130/26715146/5f1177f0-4729-11e7-8cca-a2fb5322c635.png)
+   ![screen shot 2017-06-02 at 12 20 15 am](https://cloud.githubusercontent.com/assets/9558130/26715146/5f1177f0-4729-11e7-8cca-a2fb5322c635.png)
 
 where t = single tweet that includes a, n = total number of tweets that include a, αt = number of
 retweets for tweet t, and βt = number of followers for the profile that produced tweet t . Also note that
