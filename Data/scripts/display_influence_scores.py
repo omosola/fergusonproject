@@ -1,3 +1,5 @@
+#@author: Kelsey
+#path: /Data/scripts/display_influence_scores.py
 import snap
 import cPickle
 import random
