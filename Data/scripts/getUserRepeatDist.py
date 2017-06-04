@@ -1,4 +1,5 @@
 '''
+@author: Kelsey
 Usage:
 "Usage: python getUserRepeatDist.py <path-to-tweets-pickle-dir>"
 
